@@ -7,7 +7,7 @@ module.exports = {
   ...defaults,
   testEnvironment: 'node',
   testMatch: ['**/*.spec.ts'],
-  coveragePathIgnorePatterns: ['/node_modules/', '/dist/'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/dist/', 'src/__tests__/'],
   setupFilesAfterEnv: [],
   preset: 'ts-jest',
   transform: {

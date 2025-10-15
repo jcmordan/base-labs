@@ -1,25 +1,16 @@
 import { createApp } from '@/app'
 import request from 'supertest'
-import { Server } from 'http'
 
 describe('App', () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let app: any
-  let server: Server
 
   beforeEach(() => {
     app = createApp()
-    server = app.listen(3001)
   })
 
-  afterEach((done) => {
+  afterEach(() => {
     app = null
-
-    if (server) {
-      server.close(done)
-    } else {
-      done()
-    }
   })
 
   describe('GET /health', () => {

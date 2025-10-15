@@ -1,6 +1,15 @@
 import { Request, Response } from 'express'
 import { buyCorn } from '@/controllers/cornController'
 
+const infoMock = jest.fn()
+
+jest.mock('@/libs/logger', () => ({
+  __esModule: true,
+  default: jest.fn(() => ({
+    info: (...args: unknown[]) => infoMock(...args),
+  })),
+}))
+
 describe('CornController', () => {
   describe('#buyCorn', () => {
     it('should buy corn', () => {
@@ -16,6 +25,8 @@ describe('CornController', () => {
         corn: '🌽',
         timestamp: expect.any(String),
       })
+
+      expect(infoMock).toHaveBeenCalledWith('Buying corn')
     })
   })
 })
