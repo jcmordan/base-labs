@@ -13,6 +13,8 @@ describe('CornController', () => {
 
       expect(res.send).toHaveBeenCalledWith({
         message: '1 Corn has been bought',
+        corn: '🌽',
+        timestamp: expect.any(String),
       })
     })
   })

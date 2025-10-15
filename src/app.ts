@@ -17,10 +17,21 @@ const createApp = (): express.Application => {
   })
 
   const limiter = rateLimit({
-    windowMs: 1 * 60 * 1000, // 1 minutes
-    max: 1, // limit each IP to 1 requests per
-    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-    legacyHeaders: false, // Disable the `X-Rate-Limit-*` headers
+    windowMs: 1 * 60 * 1000, // 1 minute
+    max: 1, // limit each IP to 1 request per minute
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+      message: 'Too many requests, please try again later.',
+    },
+    handler: (req, res) => {
+      console.log(
+        `🚫 Rate limit reached for client ${req.ip} - too many corn purchases!`,
+      )
+      res.status(429).json({
+        message: 'Too many requests, please try again later.',
+      })
+    },
   })
 
   // Apply rate limit to corn routes
@@ -32,5 +43,4 @@ const createApp = (): express.Application => {
 const app = createApp()
 
 export { createApp }
-
 export default app
