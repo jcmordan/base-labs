@@ -11,8 +11,8 @@
     "lint": "eslint src/**/*.ts",
     "format": "prettier --write src/*",
     "test": "jest",
-    "test:unit": "jest --config jest.config.cjs --testMatch '**/__tests__/unit/**/*.spec.ts'",
-    "test:surface": "jest --config jest.config.cjs --testMatch '**/__tests__/surface/**/*.spec.ts'",
+    "test:unit": "jest --config jest.config.mjs --testMatch '**/__tests__/unit/**/*.spec.ts'",
+    "test:surface": "jest --config jest.config.mjs --testMatch '**/__tests__/surface/**/*.spec.ts'",
     "test:watch": "jest --watch"
   },
   "dependencies": {
