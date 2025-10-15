@@ -1,9 +1,9 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express'
 
 const buyCorn = (req: Request, res: Response) => {
-  console.log('Buying corn');
+  console.log('Buying corn')
 
-  res.send("1 Corn has been bought");
-};
+  res.send('1 Corn has been bought')
+}
 
-export { buyCorn };
+export { buyCorn }

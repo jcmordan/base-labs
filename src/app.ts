@@ -1,18 +1,18 @@
-import express from 'express';
-import cornRoutes from "./routes/cornRoutes";
+import express from 'express'
+import cornRoutes from './routes/cornRoutes'
 
-const app = express();
+const app = express()
 
-app.use(express.json());
+app.use(express.json())
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
 
-app.get("/hello", (_req, res) => {
-  res.send("Hello, base-labs!!");
-});
+app.get('/hello', (_req, res) => {
+  res.send('Hello, base-labs!!')
+})
 
-app.use("/corn", cornRoutes);
+app.use('/corn', cornRoutes)
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+  console.log(`Server is running on port ${PORT}`)
+})

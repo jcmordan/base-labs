@@ -1,8 +1,8 @@
-import { Router } from 'express';
-import { buyCorn } from '../controllers/cornController';
+import { Router } from 'express'
+import { buyCorn } from '../controllers/cornController'
 
-const router: Router = Router();
+const router: Router = Router()
 
-router.post('/buy', buyCorn);
+router.post('/buy', buyCorn)
 
-export default router;  
+export default router
