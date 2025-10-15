@@ -1,18 +1,22 @@
 import express from 'express'
 import cornRouter from '@/routes/cornRoutes'
 
-const app = express()
+const createApp = (): express.Application => {
+  const app = express()
 
-app.use(express.json())
+  app.use(express.json())
 
-const PORT = process.env.PORT || 3000
+  app.get('/hello', (_req, res) => {
+    res.send('Hello, base-labs!!')
+  })
 
-app.get('/hello', (_req, res) => {
-  res.send('Hello, base-labs!!')
-})
+  app.use('/corn', cornRouter)
 
-app.use('/corn', cornRouter)
+  return app
+}
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`)
-})
+const app = createApp()
+
+export { createApp }
+
+export default app

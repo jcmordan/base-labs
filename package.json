@@ -2,10 +2,10 @@
   "name": "base-labs",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
-  "types": "dist/app.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node dist/index.js",
     "dev": "nodemon",
     "build": "tsc",
     "lint": "eslint src/**/*.ts",
