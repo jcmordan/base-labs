@@ -6,8 +6,13 @@ const createApp = (): express.Application => {
 
   app.use(express.json())
 
-  app.get('/hello', (_req, res) => {
-    res.send('Hello, base-labs!!')
+  app.get('/health', (_req, res) => {
+    res.status(200).json({
+      status: 'OK',
+      environment: process.env.NODE_ENV || 'development',
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime(),
+    })
   })
 
   app.use('/corn', cornRouter)

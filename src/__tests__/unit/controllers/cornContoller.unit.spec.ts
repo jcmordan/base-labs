@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { buyCorn } from '../../controllers/cornController'
+import { buyCorn } from '@/controllers/cornController'
 
 describe('CornController', () => {
   describe('#buyCorn', () => {
@@ -11,7 +11,9 @@ describe('CornController', () => {
 
       buyCorn(req, res)
 
-      expect(res.send).toHaveBeenCalledWith('1 Corn has been bought')
+      expect(res.send).toHaveBeenCalledWith({
+        message: '1 Corn has been bought',
+      })
     })
   })
 })
