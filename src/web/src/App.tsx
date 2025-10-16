@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -29,6 +30,24 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
+=======
+import CornMarket from '@/views/CornMarket'
+import { ThemeProvider } from '@/components/theme-provider/ThemeProvider'
+import { CornOrderProvider } from './context/CornOrderContext'
+import { StrictMode } from 'react'
+
+function App() {
+  return (
+    <StrictMode>
+      <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
+        <CornOrderProvider>
+          <div className='flex justify-center items-center h-screen bg-gray-300'>
+            <CornMarket />
+          </div>
+        </CornOrderProvider>
+      </ThemeProvider>
+    </StrictMode>
+>>>>>>> Stashed changes
   )
 }
 
