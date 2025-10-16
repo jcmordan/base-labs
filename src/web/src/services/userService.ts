@@ -14,7 +14,11 @@ import { config } from '@/config/config'
      throw new Error('Failed to create user')
    }
 
-   return response.json()
+   const { user, token } = await response.json()
+
+   localStorage.setItem('token', token)
+
+   return user
  }
 
  export const userService = { createUser }

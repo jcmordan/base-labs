@@ -6,6 +6,7 @@ import { RateLimitRequestHandler } from 'express-rate-limit'
 import cors from 'cors'
 import { config } from './lib/config'
 import { createApiRoutes } from './routes/apiRoutes'
+require('dotenv').config()
 
 const createApp = (limiter?: RateLimitRequestHandler): express.Application => {
   const app = express()

@@ -1,6 +1,7 @@
 import { createLogger } from '@bobs-corn/logger'
-import rateLimit from 'express-rate-limit'
+import rateLimit, { ipKeyGenerator } from 'express-rate-limit'
 import { config } from '@/lib/config'
+import { ValueDeterminingMiddleware } from 'express-rate-limit'
 
 const logger = createLogger('rate-limiter')
 
@@ -20,6 +21,9 @@ export const createLimiter = () => {
       res.status(429).json({
         message: 'Too many requests, please try again later.',
       })
+    },
+    keyGenerator: (req) => {
+      return req.locals.user?.id ?? ipKeyGenerator(req.ip ?? '')
     },
   })
 

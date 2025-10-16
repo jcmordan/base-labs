@@ -11,7 +11,11 @@ export const generateToken = (user: User) => {
   return jwt.sign(user, config.jwt.secret, options)
 }
 
-export const verifyToken = (token: string): User => {
+export const verifyToken = (token: string): User | null => {
+  if (!token) {
+    return null
+  }
+
   const decoded = jwt.verify(token, config.jwt.secret) as User
   return decoded
 }

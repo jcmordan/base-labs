@@ -14,17 +14,16 @@ const CornMarket = () => {
   const { dispatch } = useCornOrderContext()
 
   const handleContactInformationSubmit = async (values: CreateUserFields) => {
-    const response = await userService.createUser(values)
-
-    console.log(response)
+    await userService.createUser(values)
 
     dispatch({ type: 'SET_CONTACT_INFORMATION', payload: values })
     setCurrentStep('order');
   }
 
   const handleOrderSubmit = async () => {
-    const response = await cornService.orderCorn()
-    console.log(response)
+    await cornService.orderCorn()
+    dispatch({ type: 'INCREMENT_ORDERED_CORNS', payload: 1 })
+
     setCurrentStep('confirmation');
   }
 
@@ -44,7 +43,7 @@ const CornMarket = () => {
           />
         );
       case 'confirmation':
-        return <OrderConfirmation />;
+        return <OrderConfirmation onBack={() => setCurrentStep('order')} />;
       default:
         return null;
     }
