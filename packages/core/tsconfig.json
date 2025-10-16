@@ -9,5 +9,5 @@
     }
   },
   "include": ["src/**/*", "src/services"],
-  "exclude": ["src/node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"]
+  "exclude": ["src/node_modules", "dist"]
 }
