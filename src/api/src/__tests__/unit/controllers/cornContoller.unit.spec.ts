@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { buyCorn } from '@/api/controllers/cornController'
+import { buyCorn } from '@/controllers/cornController'
 
 const infoMock = jest.fn()
 

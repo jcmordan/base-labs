@@ -1,7 +1,7 @@
-import { createApp } from '../../../src/app'
+import { createApp } from '@/app'
 import request from 'supertest'
 import { Server } from 'http'
-import { createLimiter } from '@/api/middlewares/rateLimiter'
+import { createLimiter } from '@/middlewares'
 
 describe('App', () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
