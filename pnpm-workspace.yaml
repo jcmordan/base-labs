@@ -1,0 +1,3 @@
+packages:
+  - 'src/*' # All services and apps
+  - 'packages/*' # All packages in the packages directory like data access, business logic, etc.

@@ -1,8 +1,12 @@
 import express from 'express'
 import cornRouter from '@/routes/cornRoutes'
 import appRoutes from '@/routes/appRoutes'
-import { initHandler } from './middleware/initHandler'
-import { limiter, globalErrorHandler, requestLogger } from '@/middleware'
+import {
+  limiter,
+  globalErrorHandler,
+  requestLogger,
+  initHandler,
+} from '@/middlewares'
 
 const createApp = (): express.Application => {
   const app = express()

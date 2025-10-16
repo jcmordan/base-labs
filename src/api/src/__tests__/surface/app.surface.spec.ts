@@ -1,4 +1,4 @@
-import { createApp } from '@/app'
+import { createApp } from '@/api/src/app'
 import request from 'supertest'
 
 describe('App', () => {
