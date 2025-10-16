@@ -12,7 +12,7 @@ export const buildUserService = (): UserService => {
       /// save the user to the database
       /// return the user
 
-      return { ...fields, id: btoa(fields.taxId) }
+      return { ...fields, id: fields.taxId }
     },
   }
 }
