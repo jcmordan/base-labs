@@ -13,6 +13,10 @@
     "declaration": true,
     "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
-  "include": ["src/**/*", "src/@types/**/*", "packages/core/src/services"],
+  "include": [
+    "src/**/*",
+    "src/@types/**/*",
+    "packages/validations/src/schemas/userSchema.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }

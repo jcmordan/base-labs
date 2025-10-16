@@ -1,29 +1,23 @@
 import { useForm } from "react-hook-form"
 import { Form } from "../ui/form/form"
 import { FormTextInput } from "../ui/form/FormTextInput"
-import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "../ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card"
-import { ContactInformationForm } from "@/types"
+import { CreateUserFields } from "@/types"
 import { useCornOrderContext } from "@/context/CornOrderContext"
+import { userSchema } from "@bobs-corn/validations"
 
-const contactInformationFormSchema = z.object({
-  taxId: z.string("Tax ID is required").min(1).max(10).regex(/^[0-9]+$/, { message: "Tax ID must be a number" }),
-  firstName: z.string("First name is required").min(1, "First name is required").max(100),
-  lastName: z.string("Last name is required").min(1, "Last name is required").max(100),
-  email: z.email("Invalid email address").min(1, "Email is required").max(100),
-  phone: z.string("Phone number is required").min(1, "Phone number is required").max(100),
-})
+const contactInformationFormSchema = userSchema.omit({ id: true })
 
 type Props = {
-  onSubmit: (values: ContactInformationForm) => void
+  onSubmit: (values: CreateUserFields) => void
 }
 
 export const ContactInformation = ({ onSubmit }: Props) => {
   const { contactInformation } = useCornOrderContext()
 
-  const form = useForm<ContactInformationForm>({
+  const form = useForm<CreateUserFields>({
     resolver: zodResolver(contactInformationFormSchema),
     defaultValues: contactInformation || {}
   })

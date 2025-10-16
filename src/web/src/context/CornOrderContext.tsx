@@ -1,8 +1,8 @@
-import { ContactInformationForm } from "@/types"
+import { CreateUserFields } from "@/types"
 import { createContext, Dispatch, useContext, useReducer } from "react"
 
 interface State {
-    contactInformation: ContactInformationForm | null
+    contactInformation: CreateUserFields | null
     orderedCorns: number
     dispatch: Dispatch<Action>
 }
@@ -25,7 +25,7 @@ const cornOrderReducer = (state: State, action: Action) => {
 
 export type Action = {
     type: 'SET_CONTACT_INFORMATION'
-    payload: ContactInformationForm
+    payload: CreateUserFields
 } | {
     type: 'SET_ORDERED_CORNS'
     payload: number
