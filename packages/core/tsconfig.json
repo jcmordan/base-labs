@@ -4,9 +4,9 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": "./src",
-    "module": "ESNext",
+    "module": "commonjs",
     "target": "ES2020",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "paths": {
       "@/*": ["./*"]
     }

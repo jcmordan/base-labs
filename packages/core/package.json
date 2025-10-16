@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "commonjs",
   "scripts": {
     "build": "tsc",
     "lint": "eslint src/**/*.ts",
@@ -16,10 +17,10 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
-  "dependencies": {
-    "@bobs-corn/logger": "workspace:*"
-  },
   "devDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@bobs-corn/logger": "workspace:*"
   }
 }
