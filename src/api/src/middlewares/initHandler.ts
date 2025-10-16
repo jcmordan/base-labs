@@ -1,5 +1,5 @@
 import { createLogger } from '@bobs-corn/logger'
-import { buildCornService } from '@bobs-corn/core'
+import { buildCornService, buildUserService } from '@bobs-corn/core'
 import { Response, Request, NextFunction } from 'express'
 import { buildAppService } from '@/services/appService'
 
@@ -14,6 +14,7 @@ export const initHandler = (
     services: {
       getAppService: buildAppService,
       getCornService: buildCornService,
+      getUserService: buildUserService,
     },
   }
 

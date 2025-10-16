@@ -1,5 +1,5 @@
 {
-  "name": "@bobs-corn/logger",
+  "name": "@bobs-corn/validations",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -16,10 +16,10 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
-  "dependencies": {
-    "winston": "^3.18.3"
-  },
   "devDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "zod": "^4.1.12"
   }
 }

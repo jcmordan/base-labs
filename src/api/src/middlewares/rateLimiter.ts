@@ -1,17 +1,13 @@
 import { createLogger } from '@bobs-corn/logger'
 import rateLimit from 'express-rate-limit'
+import { config } from '@/lib/config'
 
 const logger = createLogger('rate-limiter')
-const DEFAULT_WINDOW_SECONDS = 60 // 1 minute
-const DEFAULT_MAX = 1 // limit each IP to 1 request per minute
 
 export const createLimiter = () => {
-  const windowMs =
-    +(process.env.RATE_LIMIT_WINDOW_MS ?? DEFAULT_WINDOW_SECONDS) * 1000
-
   const limiter = rateLimit({
-    windowMs,
-    max: +(process.env.RATE_LIMIT_MAX ?? DEFAULT_MAX),
+    windowMs: config.rateLimit.windowMs,
+    max: config.rateLimit.max,
     standardHeaders: true,
     legacyHeaders: false,
     message: {

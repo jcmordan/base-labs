@@ -1,5 +1,5 @@
 import { AppService } from '../services/appService'
-import { CornService } from '@bobs-corn/core'
+import { CornService, UserService } from '@bobs-corn/core'
 
 declare global {
   namespace Express {
@@ -7,6 +7,7 @@ declare global {
       services: {
         getAppService: () => AppService
         getCornService: () => CornService
+        getUserService: () => UserService
       }
     }
     interface Request {

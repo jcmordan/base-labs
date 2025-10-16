@@ -18,9 +18,13 @@
   "dependencies": {
     "@bobs-corn/core": "workspace:*",
     "@bobs-corn/logger": "workspace:*",
+    "@bobs-corn/validations": "workspace:*",
+    "@types/jsonwebtoken": "^9.0.10",
     "express": "^5.1.0",
     "express-rate-limit": "^8.1.0",
-    "winston": "^3.18.3"
+    "jsonwebtoken": "^9.0.2",
+    "winston": "^3.18.3",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",

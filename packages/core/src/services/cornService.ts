@@ -1,10 +1,5 @@
 import { createLogger } from '@bobs-corn/logger'
-
-export type PurchaseResponse = {
-  message: string
-  corn: string
-  timestamp: string
-}
+import { PurchaseResponse } from '@/entities/corn'
 
 export interface CornService {
   purchase: () => Promise<PurchaseResponse>
