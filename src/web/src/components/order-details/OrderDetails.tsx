@@ -18,7 +18,7 @@ export const OrderDetails = ({ onBack, onSubmit }: Props) => {
       </CardContent>
       <CardFooter>
         <Button onClick={onBack}>Back</Button>
-        <Button onClick={onSubmit}>Submit</Button>
+        <Button onClick={onSubmit}>Order Corn 🌽</Button>
       </CardFooter>
     </Card>
   )

@@ -5,8 +5,7 @@ import { OrderConfirmation } from '@/components/order-confirmation/OrderConfirma
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { useCornOrderContext } from '@/context/CornOrderContext';
 import { CreateUserFields } from '@/types';
-import userService from '@/services/userService';
-
+import { userService, cornService } from '@/services';
 
 export type BookingStep = 'contact' | 'order' | 'confirmation';
 
@@ -15,14 +14,18 @@ const CornMarket = () => {
   const { dispatch } = useCornOrderContext()
 
   const handleContactInformationSubmit = async (values: CreateUserFields) => {
-
-
     const response = await userService.createUser(values)
 
     console.log(response)
 
     dispatch({ type: 'SET_CONTACT_INFORMATION', payload: values })
     setCurrentStep('order');
+  }
+
+  const handleOrderSubmit = async () => {
+    const response = await cornService.orderCorn()
+    console.log(response)
+    setCurrentStep('confirmation');
   }
 
   const renderCurrentStep = () => {
@@ -37,7 +40,7 @@ const CornMarket = () => {
         return (
           <OrderDetails
             onBack={() => setCurrentStep('contact')}
-            onSubmit={() => { }}
+            onSubmit={handleOrderSubmit}
           />
         );
       case 'confirmation':
