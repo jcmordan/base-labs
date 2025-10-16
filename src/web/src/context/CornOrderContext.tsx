@@ -18,7 +18,7 @@ const cornOrderReducer = (state: State, action: Action) => {
     switch (action.type) {
         case 'SET_CONTACT_INFORMATION':
             return { ...state, contactInformation: action.payload }
-        case 'SET_ORDERED_CORNS':
+        case 'INCREMENT_ORDERED_CORNS':
             return { ...state, orderedCorns: state.orderedCorns + action.payload }
     }
 }
@@ -27,7 +27,7 @@ export type Action = {
     type: 'SET_CONTACT_INFORMATION'
     payload: CreateUserFields
 } | {
-    type: 'SET_ORDERED_CORNS'
+    type: 'INCREMENT_ORDERED_CORNS'
     payload: number
 }
 
