@@ -5,6 +5,18 @@ const { combine, timestamp, printf, colorize, errors, prettyPrint } =
 
 const isDevelopment = process.env.NODE_ENV === 'production'
 
+const consolePrintFormat = printf(
+  ({ level, message, timestamp, stack, service, ...meta }) => {
+    // Handle error objects properly
+    const { environment, ..._meta } = meta
+
+    const metaInfo =
+      Object.keys(_meta).length > 0 ? `\n${JSON.stringify(_meta, null, 2)}` : ''
+
+    return `[${environment}] ${timestamp} ${service} ${level} : ${message}${stack ? `\n${stack}` : ''}${metaInfo}`
+  },
+)
+
 const devFormat = combine(
   colorize({ all: true }),
   timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
@@ -13,9 +25,7 @@ const devFormat = combine(
     colorize: true, // Also colorize the pretty-printed objects
     depth: 5, // Set the maximum depth to pretty-print
   }),
-  printf(({ level, message, timestamp, stack, service }) => {
-    return `${timestamp} ${service} ${level} : ${message}${stack ? `\n${stack}` : ''}`
-  }),
+  consolePrintFormat,
 )
 
 const createLogger = (service: string = 'base-labs') => {
