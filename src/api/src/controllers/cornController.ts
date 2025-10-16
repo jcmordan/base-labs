@@ -7,8 +7,9 @@ const buyCorn = async (req: Request, res: Response) => {
   logger.info('Buying corn')
 
   const cornService = req.locals.services.getCornService()
-
   const response = await cornService.purchase()
+
+  logger.info('Corn purchased', { response })
 
   res.send(response)
 }

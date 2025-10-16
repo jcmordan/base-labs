@@ -1,14 +1,15 @@
 import express from 'express'
-import cornRouter from '@/routes/cornRoutes'
-import appRoutes from '@/routes/appRoutes'
+import cornRouter from '@/api/routes/cornRoutes'
+import appRoutes from '@/api/routes/appRoutes'
 import {
-  limiter,
+  limiter as defaultLimiter,
   globalErrorHandler,
   requestLogger,
   initHandler,
-} from '@/middlewares'
+} from '@/api/middlewares'
+import { RateLimitRequestHandler } from 'express-rate-limit'
 
-const createApp = (): express.Application => {
+const createApp = (limiter?: RateLimitRequestHandler): express.Application => {
   const app = express()
 
   app.use(express.json())
@@ -18,7 +19,7 @@ const createApp = (): express.Application => {
   app.use('/health', appRoutes)
 
   // Apply rate limit to corn routes
-  app.use('/corn', limiter, cornRouter)
+  app.use('/corn', limiter ?? defaultLimiter, cornRouter)
 
   // Global error handler
   app.use(globalErrorHandler)

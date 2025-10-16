@@ -1,16 +1,22 @@
-import { createApp } from '@/api/src/app'
+import { createApp } from '../../../src/app'
 import request from 'supertest'
+import { Server } from 'http'
+import { createLimiter } from '@/api/middlewares/rateLimiter'
 
 describe('App', () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let app: any
+  let server: Server<typeof app>
 
   beforeEach(() => {
-    app = createApp()
+    const limiter = createLimiter()
+    app = createApp(limiter)
+    server = app.listen()
   })
 
-  afterEach(() => {
+  afterEach((done) => {
     app = null
+    server.close(done)
   })
 
   describe('GET /health', () => {

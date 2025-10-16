@@ -1,5 +1,5 @@
 import { AppService } from '../services/appService'
-import { CornService } from '../services/cornService'
+import { CornService } from '@bobs-corn/core'
 
 declare global {
   namespace Express {

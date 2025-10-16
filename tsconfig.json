@@ -11,10 +11,12 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
     "paths": {
-      "@/*": ["src/*"]
-    },
-    "typeRoots": ["./node_modules/@types", "./src/@types"]
+      "@/api/*": ["./src/api/src/*"],
+      "@/core/*": ["./packages/core/src/*"],
+      "@/logger/*": ["./packages/logger/src/*"]
+    }
   },
   "include": ["src/**/*", "src/@types/**/*", "packages/core/src/services"],
   "exclude": ["node_modules", "dist"]
