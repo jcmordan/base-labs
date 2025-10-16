@@ -1,4 +1,4 @@
-import createLogger from '@/libs/logger'
+import { createLogger } from '@bobs-corn/logger'
 import { NextFunction, Request, Response } from 'express'
 
 export const requestLogger = (

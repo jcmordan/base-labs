@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express'
 import winston from 'winston'
+
 const { combine, timestamp, printf, colorize, errors, prettyPrint } =
   winston.format
 
@@ -13,7 +13,9 @@ const consolePrintFormat = printf(
     const metaInfo =
       Object.keys(_meta).length > 0 ? `\n${JSON.stringify(_meta, null, 2)}` : ''
 
-    return `[${environment}] ${timestamp} ${service} ${level} : ${message}${stack ? `\n${stack}` : ''}${metaInfo}`
+    return `[${environment}] ${timestamp} ${service} ${level} : ${message}${
+      stack ? `\n${stack}` : ''
+    }${metaInfo}`
   },
 )
 
@@ -28,7 +30,7 @@ const devFormat = combine(
   consolePrintFormat,
 )
 
-const createLogger = (service: string = 'base-labs') => {
+export const createLogger = (service: string = 'base-labs') => {
   const logger = winston.createLogger({
     level: 'info',
     format: !isDevelopment ? devFormat : winston.format.json(),
@@ -41,5 +43,3 @@ const createLogger = (service: string = 'base-labs') => {
 
   return logger
 }
-
-export default createLogger

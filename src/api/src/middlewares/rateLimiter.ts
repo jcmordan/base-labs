@@ -1,4 +1,4 @@
-import createLogger from '../libs/logger'
+import { createLogger } from '@bobs-corn/logger'
 import rateLimit from 'express-rate-limit'
 
 const logger = createLogger('rate-limiter')

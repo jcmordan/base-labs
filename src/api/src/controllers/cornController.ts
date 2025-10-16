@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
-import createLogger from '@/libs/logger'
+import { createLogger } from '@bobs-corn/logger'
+
 const logger = createLogger('corn-controller')
 
 const buyCorn = async (req: Request, res: Response) => {

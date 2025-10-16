@@ -9,13 +9,33 @@ importers:
   .: {}
 
   packages/core:
+    dependencies:
+      '@bobs-corn/logger':
+        specifier: workspace:*
+        version: link:../logger
     devDependencies:
-      '@types/node':
-        specifier: ^20.19.21
-        version: 20.19.21
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+  packages/logger:
+    dependencies:
+      winston:
+        specifier: ^3.18.3
+        version: 3.18.3
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
 
   src/api:
     dependencies:
+      '@bobs-corn/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@bobs-corn/logger':
+        specifier: workspace:*
+        version: link:../../packages/logger
       express:
         specifier: ^5.1.0
         version: 5.1.0

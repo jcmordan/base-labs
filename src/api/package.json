@@ -16,6 +16,8 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@bobs-corn/core": "workspace:*",
+    "@bobs-corn/logger": "workspace:*",
     "express": "^5.1.0",
     "express-rate-limit": "^8.1.0",
     "winston": "^3.18.3"
