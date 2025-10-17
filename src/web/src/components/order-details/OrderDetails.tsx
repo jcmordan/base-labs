@@ -1,7 +1,7 @@
 import { Button } from "../ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card"
 import { useCornOrderContext } from "@/context/CornOrderContext"
-import { DetailsItem } from "./DetailsItem"
+import { DetailsItem } from "../details-item/DetailsItem"
 
 type Props = {
   onBack: () => void
