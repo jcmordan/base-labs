@@ -38,7 +38,7 @@ export const ContactInformation = ({ onSubmit }: Props) => {
             />
             <FormTextInput name="lastName" label="Last Name" placeholder="Enter your last name" />
             <FormTextInput name="email" label="Email" placeholder="Enter your email" />
-            <FormTextInput name="ph@dione" label="Phone" placeholder="Enter your phone" />
+            <FormTextInput name="phone" label="Phone" placeholder="Enter your phone" />
           </CardContent>
           <CardFooter>
             <Button type="submit">Next</Button>

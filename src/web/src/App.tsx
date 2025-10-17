@@ -1,4 +1,4 @@
-import CornMarket from '@/views/CornMarket'
+import CornMarket from '@/views/CornMarketView'
 import { ThemeProvider } from '@/components/theme-provider/ThemeProvider'
 import { CornOrderProvider } from './context/CornOrderContext'
 import { StrictMode } from 'react'

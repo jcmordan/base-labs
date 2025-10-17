@@ -34,8 +34,17 @@ export type Action =
 
 const CornOrderContext = createContext<State | null>(null)
 
-export const CornOrderProvider = ({ children }: { children: React.ReactNode }) => {
-  const [state, dispatch] = useReducer(cornOrderReducer, initialState)
+export const CornOrderProvider = ({
+  children,
+  value,
+}: {
+  children: React.ReactNode
+  value?: Partial<Omit<State, 'dispatch'>>
+}) => {
+  const [state, dispatch] = useReducer(cornOrderReducer, {
+    ...initialState,
+    ...value,
+  })
 
   return (
     <CornOrderContext.Provider value={{ ...state, dispatch }}>{children}</CornOrderContext.Provider>
