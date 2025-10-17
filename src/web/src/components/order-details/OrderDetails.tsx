@@ -16,7 +16,7 @@ export const OrderDetails = ({ onBack, onSubmit }: Props) => {
   }
 
   return (
-    <Card>
+    <Card data-testid="order-details-card">
       <CardHeader>
         <CardTitle>Order Confirmation</CardTitle>
         <CardDescription>Please confirm your order details.</CardDescription>
@@ -29,7 +29,11 @@ export const OrderDetails = ({ onBack, onSubmit }: Props) => {
           />
           <DetailsItem label="Email" value={contactInformation.email} />
           <DetailsItem label="Phone" value={contactInformation.phone} />
-          <DetailsItem className="pt-2" label="Total Corns Ordered" value={`${orderedCorns} 🌽`} />
+          <DetailsItem
+            className="pt-2"
+            label="Total Corns Ordered"
+            value={`${orderedCorns} 🌽`}
+          />
         </div>
       </CardContent>
       <CardFooter>
@@ -37,5 +41,5 @@ export const OrderDetails = ({ onBack, onSubmit }: Props) => {
         <Button onClick={onSubmit}>Confirm Order</Button>
       </CardFooter>
     </Card>
-  )
+  );
 }

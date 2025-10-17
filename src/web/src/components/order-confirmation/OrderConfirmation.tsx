@@ -11,17 +11,25 @@ export const OrderConfirmation = ({ onBack }: Props) => {
   const { orderedCorns } = useCornOrderContext()
 
   return (
-    <Card>
+    <Card data-testid="order-confirmation-card">
       <CardHeader>
-        <CardTitle className="text-center text-green-500">Thank you for your order!</CardTitle>
+        <CardTitle className="text-center text-green-500">
+          Thank you for your order!
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <CardDescription>
           Your order has been placed successfully. We will contact you soon.
         </CardDescription>
-        <CardDescription>You will be able to buy more corn after a minute.</CardDescription>
+        <CardDescription>
+          You will be able to buy more corn after a minute.
+        </CardDescription>
 
-        <DetailsItem className="pt-2" label="Total Corns Ordered" value={`${orderedCorns} 🌽`} />
+        <DetailsItem
+          className="pt-2"
+          label="Total Corns Ordered"
+          value={`${orderedCorns} 🌽`}
+        />
       </CardContent>
       <CardFooter>
         <TimerButton initialTime={60} onClick={onBack}>
@@ -29,5 +37,5 @@ export const OrderConfirmation = ({ onBack }: Props) => {
         </TimerButton>
       </CardFooter>
     </Card>
-  )
+  );
 }

@@ -6,9 +6,7 @@ import userEvent from '@testing-library/user-event'
 
 import { vi } from 'vitest'
 import { CornOrderProvider } from '@/context/CornOrderContext'
-import { userSchema } from '@bobs-corn/validations'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as ReactHookForm from "react-hook-form";
+
 
 const ContactInformationForm = ({
   onSubmit,

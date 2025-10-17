@@ -62,10 +62,10 @@ type Props = React.ComponentProps<'button'> & {
 }
 
 const TimerButton = ({ initialTime, children, onClick, ...props }: Props) => {
-  const [timeLeft, setTimeLeft] = useState(initialTime ?? 60)
+  const [timeLeft, setTimeLeft] = useState(initialTime);
 
   useEffect(() => {
-    let timer: number = 0
+    let timer: any;
     if (timeLeft > 0) {
       timer = setTimeout(() => {
         setTimeLeft(timeLeft - 1)
