@@ -1,6 +1,6 @@
 import { useCornOrderContext } from '@/context/CornOrderContext'
 import { DetailsItem } from '../details-item/DetailsItem'
-import { TimerButton } from "../ui/timer-button/TimerButton";
+import { TimerButton } from '../ui/timer-button/TimerButton'
 import {
   Card,
   CardContent,
@@ -8,7 +8,7 @@ import {
   CardTitle,
   CardDescription,
   CardFooter,
-} from "../ui/shadcn/card";
+} from '../ui/shadcn/card'
 
 type Props = {
   onBack: () => void
@@ -20,23 +20,15 @@ export const OrderConfirmation = ({ onBack }: Props) => {
   return (
     <Card data-testid="order-confirmation-card">
       <CardHeader>
-        <CardTitle className="text-center text-green-500">
-          Thank you for your order!
-        </CardTitle>
+        <CardTitle className="text-center text-green-500">Thank you for your order!</CardTitle>
       </CardHeader>
       <CardContent>
         <CardDescription>
           Your order has been placed successfully. We will contact you soon.
         </CardDescription>
-        <CardDescription>
-          You will be able to buy more corn after a minute.
-        </CardDescription>
+        <CardDescription>You will be able to buy more corn after a minute.</CardDescription>
 
-        <DetailsItem
-          className="pt-2"
-          label="Total Corns Ordered"
-          value={`${orderedCorns} 🌽`}
-        />
+        <DetailsItem className="pt-2" label="Total Corns Ordered" value={`${orderedCorns} 🌽`} />
       </CardContent>
       <CardFooter>
         <TimerButton initialTime={60} onClick={onBack}>
@@ -44,5 +36,5 @@ export const OrderConfirmation = ({ onBack }: Props) => {
         </TimerButton>
       </CardFooter>
     </Card>
-  );
+  )
 }

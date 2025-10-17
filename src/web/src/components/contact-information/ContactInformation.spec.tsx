@@ -7,7 +7,6 @@ import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 import { CornOrderProvider } from '@/context/CornOrderContext'
 
-
 const ContactInformationForm = ({
   onSubmit,
   defaultValues,

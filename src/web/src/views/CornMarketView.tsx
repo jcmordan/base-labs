@@ -8,7 +8,7 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-} from "@/components/ui/shadcn/card";
+} from '@/components/ui/shadcn/card'
 import { useCornOrderContext } from '@/context/CornOrderContext'
 import { CreateUserFields } from '@/types'
 import { userService, cornService } from '@/services'
@@ -20,11 +20,11 @@ const CornMarket = () => {
   const { dispatch } = useCornOrderContext()
 
   const handleContactInformationSubmit = async (values: CreateUserFields) => {
-    await userService.createUser(values);
+    await userService.createUser(values)
 
-    dispatch({ type: "SET_CONTACT_INFORMATION", payload: values });
-    setCurrentStep("order");
-  };
+    dispatch({ type: 'SET_CONTACT_INFORMATION', payload: values })
+    setCurrentStep('order')
+  }
 
   const handleOrderSubmit = async () => {
     await cornService.orderCorn()
@@ -62,7 +62,7 @@ const CornMarket = () => {
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }
 
 export default CornMarket

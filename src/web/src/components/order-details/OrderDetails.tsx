@@ -1,4 +1,4 @@
-import { Button } from "../ui/shadcn/button";
+import { Button } from '../ui/shadcn/button'
 import {
   Card,
   CardContent,
@@ -6,20 +6,20 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../ui/shadcn/card";
-import { useCornOrderContext } from "@/context/CornOrderContext";
-import { DetailsItem } from "../details-item/DetailsItem";
+} from '../ui/shadcn/card'
+import { useCornOrderContext } from '@/context/CornOrderContext'
+import { DetailsItem } from '../details-item/DetailsItem'
 
 type Props = {
-  onBack: () => void;
-  onSubmit: () => void;
-};
+  onBack: () => void
+  onSubmit: () => void
+}
 
 export const OrderDetails = ({ onBack, onSubmit }: Props) => {
-  const { contactInformation, orderedCorns } = useCornOrderContext();
+  const { contactInformation, orderedCorns } = useCornOrderContext()
 
   if (!contactInformation) {
-    return null;
+    return null
   }
 
   return (
@@ -36,11 +36,7 @@ export const OrderDetails = ({ onBack, onSubmit }: Props) => {
           />
           <DetailsItem label="Email" value={contactInformation.email} />
           <DetailsItem label="Phone" value={contactInformation.phone} />
-          <DetailsItem
-            className="pt-2"
-            label="Total Corns Ordered"
-            value={`${orderedCorns} 🌽`}
-          />
+          <DetailsItem className="pt-2" label="Total Corns Ordered" value={`${orderedCorns} 🌽`} />
         </div>
       </CardContent>
       <CardFooter>
@@ -48,5 +44,5 @@ export const OrderDetails = ({ onBack, onSubmit }: Props) => {
         <Button onClick={onSubmit}>Confirm Order</Button>
       </CardFooter>
     </Card>
-  );
-};
+  )
+}
