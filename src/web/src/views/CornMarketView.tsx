@@ -14,6 +14,8 @@ const CornMarket = () => {
   const { dispatch } = useCornOrderContext()
 
   const handleContactInformationSubmit = async (values: CreateUserFields) => {
+
+    console.log("values", values);
     await userService.createUser(values)
 
     dispatch({ type: 'SET_CONTACT_INFORMATION', payload: values })
@@ -43,7 +45,7 @@ const CornMarket = () => {
   }
 
   return (
-    <Card className="w-full max-w-xl">
+    <Card className="w-full max-w-xl" data-testid="corn-market-view">
       <CardHeader>
         <CardTitle className="text-center">Bobs Farm 🌽</CardTitle>
         <CardDescription className="text-center">
@@ -56,7 +58,7 @@ const CornMarket = () => {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 export default CornMarket

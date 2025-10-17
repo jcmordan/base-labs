@@ -6,7 +6,7 @@ import { CornOrderProvider } from "../../context/CornOrderContext";
 import { CreateUserFields } from "../../types";
 import userEvent from "@testing-library/user-event";
 
-const OrderConfirmationWrapper = ({
+const OrderDetailsWrapper = ({
   onBack,
   onSubmit,
   orderedCorns,
@@ -39,7 +39,7 @@ describe("OrderDetails", () => {
     const orderedCorns = 1;
 
     render(
-      <OrderConfirmationWrapper
+      <OrderDetailsWrapper
         onBack={vi.fn()}
         onSubmit={vi.fn()}
         orderedCorns={orderedCorns}
@@ -49,13 +49,17 @@ describe("OrderDetails", () => {
 
     expect(screen.getByTestId("order-details-card")).toBeInTheDocument();
     expect(screen.getByText("Order Confirmation")).toBeInTheDocument();
-    
+
     expect(
       screen.getByText("Please confirm your order details."),
     ).toBeInTheDocument();
 
     expect(screen.getByText("Contact Information:")).toBeInTheDocument();
-    expect(screen.getByText(`${contactInformation.firstName} ${contactInformation.lastName}`)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        `${contactInformation.firstName} ${contactInformation.lastName}`,
+      ),
+    ).toBeInTheDocument();
 
     expect(screen.getByText("Email:")).toBeInTheDocument();
     expect(screen.getByText(contactInformation.email)).toBeInTheDocument();
@@ -69,8 +73,6 @@ describe("OrderDetails", () => {
     expect(screen.getByText("Total Corns Ordered:")).toBeInTheDocument();
     expect(screen.getByText(`${orderedCorns} 🌽`)).toBeInTheDocument();
 
-
-
     expect(screen.getByRole("button", { name: /Back/i })).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: /Confirm Order/i }),
@@ -81,12 +83,12 @@ describe("OrderDetails", () => {
     const onBack = vi.fn();
 
     render(
-      <OrderConfirmationWrapper
+      <OrderDetailsWrapper
         onBack={onBack}
         onSubmit={vi.fn()}
         orderedCorns={1}
         contactInformation={contactInformation}
-      />
+      />,
     );
 
     const backButton = screen.getByRole("button", { name: /Back/i });
@@ -98,15 +100,17 @@ describe("OrderDetails", () => {
   it("should call onSubmit when the confirm order button is clicked", async () => {
     const onSubmit = vi.fn();
     render(
-      <OrderConfirmationWrapper
+      <OrderDetailsWrapper
         onBack={vi.fn()}
         onSubmit={onSubmit}
         orderedCorns={1}
         contactInformation={contactInformation}
-      />
+      />,
     );
 
-    const confirmOrderButton = screen.getByRole("button", { name: /Confirm Order/i });  
+    const confirmOrderButton = screen.getByRole("button", {
+      name: /Confirm Order/i,
+    });
     await user.click(confirmOrderButton);
 
     expect(onSubmit).toHaveBeenCalled();
