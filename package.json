@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "build": "pnpm --filter=@bobs-corn/* build",
+    "predev:api": "pnpm build",
     "dev:api": "pnpm --filter=@bobs-corn/api dev",
+    "dev:web": "pnpm --filter=@bobs-corn/web dev",
     "test": "pnpm --filter=@bobs-corn/* test"
   },
   "keywords": [],

@@ -16,7 +16,7 @@ const createUser = async (fields: CreateUserFields) => {
 
   const { user, token } = await response.json()
 
-  localStorage.setItem('token', token)
+  sessionStorage.setItem('token', token)
 
   return user
 }
