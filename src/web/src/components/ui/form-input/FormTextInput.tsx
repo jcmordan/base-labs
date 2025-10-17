@@ -1,15 +1,21 @@
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from './form'
-import { Input } from '../input'
-import { useFormContext } from 'react-hook-form'
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../shadcn/form";
+import { Input } from "../shadcn/input";
+import { useFormContext } from "react-hook-form";
 
 type Props = {
-  name: string
-  label: string
-  placeholder?: string
-}
+  name: string;
+  label: string;
+  placeholder?: string;
+};
 
 export const FormTextInput = ({ name, label, placeholder }: Props) => {
-  const form = useFormContext()
+  const form = useFormContext();
 
   return (
     <FormField
@@ -25,5 +31,5 @@ export const FormTextInput = ({ name, label, placeholder }: Props) => {
         </FormItem>
       )}
     />
-  )
-}
+  );
+};

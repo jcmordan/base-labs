@@ -20,7 +20,7 @@ export default defineConfig({
       "dist",
       "coverage",
       ".coverage",
-      "**/components/ui/**",
+      "**/components/ui/shadcn/**",
     ],
     coverage: {
       reporter: ["text", "json", "html"],
@@ -29,7 +29,7 @@ export default defineConfig({
         "dist",
         "coverage",
         ".coverage",
-        "**/components/ui/**",
+        "**/components/ui/shadcn/**",
         "**/*.spec.tsx",
         "**/*.{js,cjs}",
         "vite.config.ts",

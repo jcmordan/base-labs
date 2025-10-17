@@ -1,7 +1,14 @@
 import { useCornOrderContext } from '@/context/CornOrderContext'
 import { DetailsItem } from '../details-item/DetailsItem'
-import { TimerButton } from '../ui/button'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '../ui/card'
+import { TimerButton } from "../ui/timer-button/TimerButton";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "../ui/shadcn/card";
 
 type Props = {
   onBack: () => void

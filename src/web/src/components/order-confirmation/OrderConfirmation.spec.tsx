@@ -22,7 +22,7 @@ const OrderConfirmationWrapper = ({
 describe("OrderConfirmation", () => {
   const user = userEvent.setup();
 
-  vi.mock("@/components/ui/button", () => ({
+  vi.mock("@/components/ui/timer-button/TimerButton", () => ({
     TimerButton: ({ children, onClick, ...props }: any) => (
       <button {...props} onClick={onClick} data-testid="mock-timer-button">
         {children}

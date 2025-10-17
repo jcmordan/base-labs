@@ -1,18 +1,25 @@
-import { Button } from '../ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
-import { useCornOrderContext } from '@/context/CornOrderContext'
-import { DetailsItem } from '../details-item/DetailsItem'
+import { Button } from "../ui/shadcn/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/shadcn/card";
+import { useCornOrderContext } from "@/context/CornOrderContext";
+import { DetailsItem } from "../details-item/DetailsItem";
 
 type Props = {
-  onBack: () => void
-  onSubmit: () => void
-}
+  onBack: () => void;
+  onSubmit: () => void;
+};
 
 export const OrderDetails = ({ onBack, onSubmit }: Props) => {
-  const { contactInformation, orderedCorns } = useCornOrderContext()
+  const { contactInformation, orderedCorns } = useCornOrderContext();
 
   if (!contactInformation) {
-    return null
+    return null;
   }
 
   return (
@@ -42,4 +49,4 @@ export const OrderDetails = ({ onBack, onSubmit }: Props) => {
       </CardFooter>
     </Card>
   );
-}
+};

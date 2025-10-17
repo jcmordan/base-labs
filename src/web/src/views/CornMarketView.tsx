@@ -2,7 +2,13 @@ import { useState } from 'react'
 import { ContactInformation } from '@/components'
 import { OrderDetails } from '@/components/order-details/OrderDetails'
 import { OrderConfirmation } from '@/components/order-confirmation/OrderConfirmation'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/shadcn/card";
 import { useCornOrderContext } from '@/context/CornOrderContext'
 import { CreateUserFields } from '@/types'
 import { userService, cornService } from '@/services'
@@ -14,13 +20,11 @@ const CornMarket = () => {
   const { dispatch } = useCornOrderContext()
 
   const handleContactInformationSubmit = async (values: CreateUserFields) => {
+    await userService.createUser(values);
 
-    console.log("values", values);
-    await userService.createUser(values)
-
-    dispatch({ type: 'SET_CONTACT_INFORMATION', payload: values })
-    setCurrentStep('order')
-  }
+    dispatch({ type: "SET_CONTACT_INFORMATION", payload: values });
+    setCurrentStep("order");
+  };
 
   const handleOrderSubmit = async () => {
     await cornService.orderCorn()

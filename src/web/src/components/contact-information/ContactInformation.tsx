@@ -1,9 +1,15 @@
 import { useForm } from 'react-hook-form'
-import { Form } from '../ui/form/form'
-import { FormTextInput } from '../ui/form/FormTextInput'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { Button } from '../ui/button'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../ui/card'
+import { Form } from "../ui/shadcn/form";
+import { FormTextInput } from "../ui/form-input/FormTextInput";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "../ui/shadcn/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/shadcn/card";
 import { CreateUserFields } from '@/types'
 import { useCornOrderContext } from '@/context/CornOrderContext'
 import { userSchema } from '@bobs-corn/validations'
