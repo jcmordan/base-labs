@@ -1,6 +1,6 @@
 import { config } from '@/config/config'
 
- const orderCorn = async () => {
+const orderCorn = async () => {
   const response = await fetch(`${config.apiUrl}/api/corns/buy`, {
     method: 'POST',
     headers: {
@@ -17,4 +17,3 @@ import { config } from '@/config/config'
 }
 
 export const cornService = { orderCorn }
-

@@ -1,7 +1,7 @@
-import { Button } from "../ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card"
-import { useCornOrderContext } from "@/context/CornOrderContext"
-import { DetailsItem } from "../details-item/DetailsItem"
+import { Button } from '../ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
+import { useCornOrderContext } from '@/context/CornOrderContext'
+import { DetailsItem } from '../details-item/DetailsItem'
 
 type Props = {
   onBack: () => void
@@ -12,7 +12,7 @@ export const OrderDetails = ({ onBack, onSubmit }: Props) => {
   const { contactInformation, orderedCorns } = useCornOrderContext()
 
   if (!contactInformation) {
-    return null;
+    return null
   }
 
   return (
@@ -23,7 +23,10 @@ export const OrderDetails = ({ onBack, onSubmit }: Props) => {
       </CardHeader>
       <CardContent>
         <div className="flex flex-col">
-          <DetailsItem label="Contact Information" value={`${contactInformation.firstName} ${contactInformation.lastName}`} />
+          <DetailsItem
+            label="Contact Information"
+            value={`${contactInformation.firstName} ${contactInformation.lastName}`}
+          />
           <DetailsItem label="Email" value={contactInformation.email} />
           <DetailsItem label="Phone" value={contactInformation.phone} />
           <DetailsItem className="pt-2" label="Total Corns Ordered" value={`${orderedCorns} 🌽`} />

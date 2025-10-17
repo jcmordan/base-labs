@@ -1,24 +1,24 @@
 import { CreateUserFields } from '@/types'
 import { config } from '@/config/config'
 
- const createUser = async (fields: CreateUserFields) => {
-   const response = await fetch(`${config.apiUrl}/api/users`, {
-     method: 'POST',
-     headers: {
-       'Content-Type': 'application/json',
-     },
-     body: JSON.stringify(fields),
-   })
+const createUser = async (fields: CreateUserFields) => {
+  const response = await fetch(`${config.apiUrl}/api/users`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(fields),
+  })
 
-   if (!response.ok) {
-     throw new Error('Failed to create user')
-   }
+  if (!response.ok) {
+    throw new Error('Failed to create user')
+  }
 
-   const { user, token } = await response.json()
+  const { user, token } = await response.json()
 
-   localStorage.setItem('token', token)
+  localStorage.setItem('token', token)
 
-   return user
- }
+  return user
+}
 
- export const userService = { createUser }
+export const userService = { createUser }

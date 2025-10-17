@@ -1,50 +1,53 @@
-import { CreateUserFields } from "@/types"
-import { createContext, Dispatch, useContext, useReducer } from "react"
+import { CreateUserFields } from '@/types'
+import { createContext, Dispatch, useContext, useReducer } from 'react'
 
 interface State {
-    contactInformation: CreateUserFields | null
-    orderedCorns: number
-    dispatch: Dispatch<Action>
+  contactInformation: CreateUserFields | null
+  orderedCorns: number
+  dispatch: Dispatch<Action>
 }
 
 const initialState: State = {
-    contactInformation: null,
-    orderedCorns: 0,
-    dispatch: () => { }
+  contactInformation: null,
+  orderedCorns: 0,
+  dispatch: () => {},
 }
-
 
 const cornOrderReducer = (state: State, action: Action) => {
-    switch (action.type) {
-        case 'SET_CONTACT_INFORMATION':
-            return { ...state, contactInformation: action.payload }
-        case 'INCREMENT_ORDERED_CORNS':
-            return { ...state, orderedCorns: state.orderedCorns + action.payload }
-    }
+  switch (action.type) {
+    case 'SET_CONTACT_INFORMATION':
+      return { ...state, contactInformation: action.payload }
+    case 'INCREMENT_ORDERED_CORNS':
+      return { ...state, orderedCorns: state.orderedCorns + action.payload }
+  }
 }
 
-export type Action = {
-    type: 'SET_CONTACT_INFORMATION'
-    payload: CreateUserFields
-} | {
-    type: 'INCREMENT_ORDERED_CORNS'
-    payload: number
-}
+export type Action =
+  | {
+      type: 'SET_CONTACT_INFORMATION'
+      payload: CreateUserFields
+    }
+  | {
+      type: 'INCREMENT_ORDERED_CORNS'
+      payload: number
+    }
 
 const CornOrderContext = createContext<State | null>(null)
 
 export const CornOrderProvider = ({ children }: { children: React.ReactNode }) => {
-    const [state, dispatch] = useReducer(cornOrderReducer, initialState)
+  const [state, dispatch] = useReducer(cornOrderReducer, initialState)
 
-    return <CornOrderContext.Provider value={{ ...state, dispatch }}>{children}</CornOrderContext.Provider>
+  return (
+    <CornOrderContext.Provider value={{ ...state, dispatch }}>{children}</CornOrderContext.Provider>
+  )
 }
 
 export const useCornOrderContext = () => {
-    const context = useContext(CornOrderContext)
+  const context = useContext(CornOrderContext)
 
-    if (!context) {
-        throw new Error('useCornOrderContext must be used within a CornOrderProvider')
-    }
-    
-    return context
+  if (!context) {
+    throw new Error('useCornOrderContext must be used within a CornOrderProvider')
+  }
+
+  return context
 }
