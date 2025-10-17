@@ -15,7 +15,7 @@ const OrderDetailsWrapper = ({
   onBack: () => void
   onSubmit: () => void
   orderedCorns: number
-  contactInformation: CreateUserFields
+  contactInformation: CreateUserFields | null
 }) => {
   return (
     <CornOrderProvider value={{ orderedCorns, contactInformation }}>
@@ -108,5 +108,18 @@ describe('OrderDetails', () => {
     await user.click(confirmOrderButton)
 
     expect(onSubmit).toHaveBeenCalled()
+  })
+
+  it('should not render the order details card if there is no contact information', () => {
+    render(
+      <OrderDetailsWrapper
+        onBack={vi.fn()}
+        onSubmit={vi.fn()}
+        orderedCorns={1}
+        contactInformation={null}
+      />,
+    )
+
+    expect(screen.queryByTestId('order-details-card')).not.toBeInTheDocument()
   })
 })
